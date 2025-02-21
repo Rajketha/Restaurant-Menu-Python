@@ -20,14 +20,14 @@ localtime=time.asctime(time.localtime(time.time()))
 #-----------------INFO TOP------------
 lblinfo = Label(Tops, font=( 'aria' ,30, 'bold' ),text="Restaurant Management System By RajKumar",fg="steel blue",bd=10,anchor='w')
 lblinfo.grid(row=0,column=0)
-lblinfo = Label(Tops, font=( 'aria' ,20, ),text=localtime,fg="steel blue",anchor=W)
+lblinfo = Label(Tops, font=( 'aria' ,30, ),text=localtime,fg="steel blue",bd=10, anchor=W)
 lblinfo.grid(row=1,column=0)
 
 #---------------Calculator------------------
 text_Input=StringVar()
 operator =""
 
-txtdisplay = Entry(f2,font=('ariel' ,20,'bold'), textvariable=text_Input , bd=5 ,insertwidth=7 ,bg="white",justify='right')
+txtdisplay = Entry(f2,font=('ariel' ,20,'bold'), textvariable=text_Input , bd=2 ,insertwidth=7 ,bg="white",justify='right')
 txtdisplay.grid(columnspan=4)
 
 def  btnclick(numbers):
@@ -52,26 +52,26 @@ def Ref():
     randomRef = str(x)
     # rand.set(randomRef)
 
-    cof =float(Fries.get())
+    cof =float(Bir.get())
     colfries= float(Largefries.get())
     cob= float(Burger.get())
     cofi= float(Filet.get())
     cochee= float(Cheese_burger.get())
     codr= float(Drinks.get())
 
-    costoffries = cof*25
-    costoflargefries = colfries*40
-    costofburger = cob*35
-    costoffilet = cofi*50
-    costofcheeseburger = cochee*50
-    costofdrinks = codr*35
+    costofBir = cof*250
+    costoflargefries = colfries*165
+    costofburger = cob*135
+    costoffilet = cofi*350
+    costofcheeseburger = cochee*130
+    costofdrinks = codr*50
 
-    costofmeal = "Rs.",str('%.2f'% (costoffries +  costoflargefries + costofburger + costoffilet + costofcheeseburger + costofdrinks))
-    PayTax=((costoffries +  costoflargefries + costofburger + costoffilet +  costofcheeseburger + costofdrinks)*0.33)
-    Totalcost=(costoffries +  costoflargefries + costofburger + costoffilet  + costofcheeseburger + costofdrinks)
-    Ser_Charge=((costoffries +  costoflargefries + costofburger + costoffilet + costofcheeseburger + costofdrinks)/99)
+    costofmeal = "Rs.",str('%.2f'% (costofBir +  costoflargefries + costofburger + costoffilet + costofcheeseburger + costofdrinks))
+    PayTax=((costofBir  +  costoflargefries + costofburger + costoffilet +  costofcheeseburger + costofdrinks)*0.07)
+    Totalcost=(costofBir  +  costoflargefries + costofburger + costoffilet  + costofcheeseburger + costofdrinks)
+    Ser_Charge=((costofBir  +  costoflargefries + costofburger + costoffilet + costofcheeseburger + costofdrinks)/99)
     Service="Rs.",str('%.2f'% Ser_Charge)
-    OverAllCost="Rs.",str( PayTax + Totalcost + Ser_Charge)
+    OverAllCost="Rs.",str('%.2f'%( PayTax + Totalcost + Ser_Charge))
     PaidTax="Rs.",str('%.2f'% PayTax)
 
     Service_Charge.set(Service)
@@ -86,7 +86,7 @@ def qexit():
 
 def reset():
     rand.set("")
-    Fries.set("")
+    Bir.set("")
     Largefries.set("")
     Burger.set("")
     Filet.set("")
@@ -154,7 +154,7 @@ status.grid(row=7,columnspan=3)
 
 #---------------------------------------------------------------------------------------
 rand = StringVar()
-Fries = StringVar()
+Bir = StringVar()
 Largefries = StringVar()
 Burger = StringVar()
 Filet = StringVar()
@@ -172,10 +172,10 @@ lblreference.grid(row=0,column=0)
 txtreference = Entry(f1,font=('ariel' ,16,'bold'), textvariable=rand , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
 txtreference.grid(row=0,column=1)
 
-lblfries = Label(f1, font=( 'aria' ,16, 'bold' ),text="Fries Meal",fg="steel blue",bd=10,anchor='w')
-lblfries.grid(row=1,column=0)
-txtfries = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Fries , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
-txtfries.grid(row=1,column=1)
+lblBir = Label(f1, font=( 'aria' ,16, 'bold' ),text="Biryani",fg="steel blue",bd=10,anchor='w')
+lblBir.grid(row=1,column=0)
+txtBir = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Bir , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
+txtBir.grid(row=1,column=1)
 
 lblLargefries = Label(f1, font=( 'aria' ,16, 'bold' ),text="Lunch Meal",fg="steel blue",bd=10,anchor='w')
 lblLargefries.grid(row=2,column=0)
@@ -183,17 +183,17 @@ txtLargefries = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Largefries , bd
 txtLargefries.grid(row=2,column=1)
 
 
-lblburger = Label(f1, font=( 'aria' ,16, 'bold' ),text="Burger Meal",fg="steel blue",bd=10,anchor='w')
+lblburger = Label(f1, font=( 'aria' ,16, 'bold' ),text="Burger",fg="steel blue",bd=10,anchor='w')
 lblburger.grid(row=3,column=0)
 txtburger = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Burger , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
 txtburger.grid(row=3,column=1)
 
-lblFilet = Label(f1, font=( 'aria' ,16, 'bold' ),text="Pizza Meal",fg="steel blue",bd=10,anchor='w')
+lblFilet = Label(f1, font=( 'aria' ,16, 'bold' ),text="Pizza",fg="steel blue",bd=10,anchor='w')
 lblFilet.grid(row=4,column=0)
 txtFilet = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Filet , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
 txtFilet.grid(row=4,column=1)
 
-lblCheese_burger = Label(f1, font=( 'aria' ,16, 'bold' ),text="Cheese burger",fg="steel blue",bd=10,anchor='w')
+lblCheese_burger = Label(f1, font=( 'aria' ,16, 'bold' ),text="Chicken Manchuria",fg="steel blue",bd=10,anchor='w')
 lblCheese_burger.grid(row=5,column=0)
 txtCheese_burger = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Cheese_burger , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
 txtCheese_burger.grid(row=5,column=1)
@@ -204,7 +204,7 @@ lblDrinks.grid(row=0,column=2)
 txtDrinks = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Drinks , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
 txtDrinks.grid(row=0,column=3)
 
-lblcost = Label(f1, font=( 'aria' ,16, 'bold' ),text="cost",fg="steel blue",bd=10,anchor='w')
+lblcost = Label(f1, font=( 'aria' ,16, 'bold' ),text="Cost",fg="steel blue",bd=10,anchor='w')
 lblcost.grid(row=1,column=2)
 txtcost = Entry(f1,font=('ariel' ,16,'bold'), textvariable=cost , bd=6,insertwidth=4,bg="powder blue" ,justify='right')
 txtcost.grid(row=1,column=3)
@@ -252,29 +252,29 @@ def price():
     lblinfo.grid(row=0, column=2)
     lblinfo = Label(roo, font=('aria', 15, 'bold'), text="PRICE", fg="black", anchor=W)
     lblinfo.grid(row=0, column=3)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Fries Meal", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Biryani", fg="steel blue", anchor=W)
     lblinfo.grid(row=1, column=0)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="25", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="250", fg="steel blue", anchor=W)
     lblinfo.grid(row=1, column=3)
     lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Lunch Meal", fg="steel blue", anchor=W)
     lblinfo.grid(row=2, column=0)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="40", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="165", fg="steel blue", anchor=W)
     lblinfo.grid(row=2, column=3)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Burger Meal", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Burger", fg="steel blue", anchor=W)
     lblinfo.grid(row=3, column=0)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="35", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="135", fg="steel blue", anchor=W)
     lblinfo.grid(row=3, column=3)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Pizza Meal", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Pizza", fg="steel blue", anchor=W)
     lblinfo.grid(row=4, column=0)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="50", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="350", fg="steel blue", anchor=W)
     lblinfo.grid(row=4, column=3)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Cheese Burger", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Chicken Manchuria", fg="steel blue", anchor=W)
     lblinfo.grid(row=5, column=0)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="30", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="130", fg="steel blue", anchor=W)
     lblinfo.grid(row=5, column=3)
     lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Drinks", fg="steel blue", anchor=W)
     lblinfo.grid(row=6, column=0)
-    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="35", fg="steel blue", anchor=W)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="50", fg="steel blue", anchor=W)
     lblinfo.grid(row=6, column=3)
 
     roo.mainloop()
